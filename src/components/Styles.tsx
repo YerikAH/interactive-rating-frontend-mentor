@@ -20,6 +20,7 @@ export const ModalContent = styled.div`
   height: 26.25rem;
   border-radius: 1rem;
   padding: 2.063rem;
+  overflow: auto;
 `;
 export const ModalContentNoSubmit = styled.div``;
 
@@ -47,12 +48,22 @@ export const NoSubmitText = styled.p`
 
 export const NoSubmitButtonContent = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 3.125rem);
+  grid-template-columns: repeat(5, 1.4rem);
   gap: 1.5rem;
+  justify-content: space-between;
+  @media (min-width: 350px) {
+    grid-template-columns: repeat(5, 1.8rem);
+  }
+  @media (min-width: 370px) {
+    grid-template-columns: repeat(5, 2rem);
+  }
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(5, 3.125rem);
+  }
 `;
 export const NoSubmitButtonChoice = styled.button`
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 2.4rem;
+  height: 2.4rem;
   border-radius: 255px;
   color: var(--medium-grey);
   background-color: rgb(45, 53, 63);
@@ -62,6 +73,18 @@ export const NoSubmitButtonChoice = styled.button`
   border: none;
   display: flex;
   transition: 0.3s;
+  @media (min-width: 350px) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  @media (min-width: 350px) {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  @media (min-width: 500px) {
+    width: 3.125rem;
+    height: 3.125rem;
+  }
   cursor: pointer;
   &:hover {
     background-color: var(--orange);
@@ -69,8 +92,8 @@ export const NoSubmitButtonChoice = styled.button`
   }
 `;
 export const NoSubmitButtonChoiceActive = styled.button`
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 2.4rem;
+  height: 2.4rem;
   border-radius: 255px;
   color: var(--medium-grey);
   background-color: var(--light-grey);
@@ -80,7 +103,19 @@ export const NoSubmitButtonChoiceActive = styled.button`
   display: flex;
   align-items: center;
   border: none;
-  transition: 0.3s;
+
+  @media (min-width: 350px) {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  @media (min-width: 350px) {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  @media (min-width: 500px) {
+    width: 3.125rem;
+    height: 3.125rem;
+  }
 `;
 
 export const NoSubmitButtonSubmit = styled.button`
@@ -102,3 +137,45 @@ export const NoSubmitButtonSubmit = styled.button`
 `;
 
 export const ModalContentSubmit = styled.div``;
+
+export const SubmitContentResponsiveImage = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+`;
+export const SubmitContentImage = styled.img`
+  width: 100%;
+  max-width: 10.125rem;
+`;
+export const SubmitContentValueOfFather = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+`;
+export const SubmitContentValueOf = styled.span`
+  background-color: rgb(45, 53, 63);
+  color: var(--orange);
+  border-radius: 255px;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.89rem;
+`;
+
+export const SubmitContentTitle = styled.h2`
+  width: 100%;
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--white);
+  margin: 1.5rem 0 0 0;
+  @media (min-width: 500px) {
+    margin: 2rem 0 0 0;
+  }
+`;
+export const SubmitContentText = styled.p`
+  text-align: center;
+  color: var(--medium-grey);
+  line-height: 25px;
+  margin: 0.9rem 0 0 0;
+  font-size: 0.9rem;
+`;

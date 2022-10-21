@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import star from "../assets/icon-star.svg";
+import imageEnd from "../assets/illustration-thank-you.svg";
 import {
   BgCenterModal,
   ModalContent,
@@ -13,6 +14,12 @@ import {
   NoSubmitButtonChoice,
   NoSubmitButtonSubmit,
   NoSubmitButtonChoiceActive,
+  SubmitContentResponsiveImage,
+  SubmitContentValueOf,
+  SubmitContentImage,
+  SubmitContentTitle,
+  SubmitContentText,
+  SubmitContentValueOfFather,
 } from "./Styles";
 export default function Component() {
   type numbers = {
@@ -44,7 +51,34 @@ export default function Component() {
 
   const [check, setCheck] = useState<boolean>(true);
   const [optionRender, setOptionRender] = useState<numbers[]>([]);
-
+  const [numberSel, setNumberSel] = useState<number>(0);
+  const handleClick = (id: number) => {
+    const moreVar = [...optionRender];
+    moreVar.map((item) => {
+      if (item.active) {
+        item.active = false;
+      }
+    });
+    setOptionRender(moreVar);
+    const varTemp: numbers[] = [...optionRender];
+    let varfind: numbers | undefined = varTemp.find(
+      (item) => item.numberSelect === id
+    );
+    if (varfind !== undefined) {
+      varfind.active = !varfind.active;
+    }
+    setOptionRender(varTemp);
+  };
+  const handleChangePage = (): void => {
+    setCheck(false);
+    const varTemp: numbers[] = [...optionRender];
+    let varfind: numbers | undefined = varTemp.find(
+      (item) => item.active === true
+    );
+    if (varfind !== undefined) {
+      setNumberSel(varfind.numberSelect);
+    }
+  };
   useEffect(() => {
     setOptionRender(initialState);
   }, []);
@@ -66,23 +100,42 @@ export default function Component() {
               <NoSubmitButtonContent>
                 {optionRender.map((item) =>
                   !item.active ? (
-                    <NoSubmitButtonChoice onClick={handleClick}>
+                    <NoSubmitButtonChoice
+                      key={item.numberSelect}
+                      onClick={() => handleClick(item.numberSelect)}
+                    >
                       {item.numberSelect}
                     </NoSubmitButtonChoice>
                   ) : (
-                    <NoSubmitButtonChoiceActive>
+                    <NoSubmitButtonChoiceActive key={item.numberSelect}>
                       {item.numberSelect}
                     </NoSubmitButtonChoiceActive>
                   )
                 )}
               </NoSubmitButtonContent>
-              <NoSubmitButtonSubmit>SUBMIT</NoSubmitButtonSubmit>
+              <NoSubmitButtonSubmit onClick={handleChangePage}>
+                SUBMIT
+              </NoSubmitButtonSubmit>
             </ModalContentNoSubmit>
           </>
         )}
         {!check && (
           <>
-            <ModalContentSubmit></ModalContentSubmit>
+            <ModalContentSubmit>
+              <SubmitContentResponsiveImage>
+                <SubmitContentImage src={imageEnd} />
+              </SubmitContentResponsiveImage>
+              <SubmitContentValueOfFather>
+                <SubmitContentValueOf>
+                  Your selected {numberSel} out of 5
+                </SubmitContentValueOf>
+              </SubmitContentValueOfFather>
+              <SubmitContentTitle>Thank you!</SubmitContentTitle>
+              <SubmitContentText>
+                We appreciate you taking the time to give a rating. <br /> If
+                you ever need more support, don't hesitate to get in touch!
+              </SubmitContentText>
+            </ModalContentSubmit>
           </>
         )}
       </ModalContent>
