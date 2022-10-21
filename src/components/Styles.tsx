@@ -32,6 +32,7 @@ export const NoSubmitCircle = styled.div`
   display: flex;
   padding: 1rem;
   border-radius: 255px;
+  margin-bottom: 2.188rem;
 `;
 export const NoSubmitCircleImage = styled.img``;
 export const NoSubmitTitle = styled.h1`
@@ -41,6 +42,7 @@ export const NoSubmitTitle = styled.h1`
 export const NoSubmitText = styled.p`
   color: var(--medium-grey);
   font-size: 0.938rem;
+  margin: 0.938rem 0 1.625rem 0;
 `;
 
 export const NoSubmitButtonContent = styled.div`
@@ -60,6 +62,7 @@ export const NoSubmitButtonChoice = styled.button`
   border: none;
   display: flex;
   transition: 0.3s;
+  cursor: pointer;
   &:hover {
     background-color: var(--orange);
     color: var(--white);
@@ -80,6 +83,22 @@ export const NoSubmitButtonChoiceActive = styled.button`
   transition: 0.3s;
 `;
 
-export const NoSubmitButtonSubmit = styled.button``;
+export const NoSubmitButtonSubmit = styled.button`
+  cursor: pointer;
+  border-radius: 255px;
+  width: 100%;
+  border: none;
+  background-color: var(--orange);
+  color: var(--white);
+  margin-top: 2.188rem;
+  padding: 0.93rem;
+  transition: 0.3s;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  &:hover {
+    color: var(--orange);
+    background-color: var(--white);
+  }
+`;
 
 export const ModalContentSubmit = styled.div``;

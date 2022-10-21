@@ -11,6 +11,7 @@ import {
   NoSubmitText,
   NoSubmitButtonContent,
   NoSubmitButtonChoice,
+  NoSubmitButtonSubmit,
   NoSubmitButtonChoiceActive,
 } from "./Styles";
 export default function Component() {
@@ -65,7 +66,7 @@ export default function Component() {
               <NoSubmitButtonContent>
                 {optionRender.map((item) =>
                   !item.active ? (
-                    <NoSubmitButtonChoice>
+                    <NoSubmitButtonChoice onClick={handleClick}>
                       {item.numberSelect}
                     </NoSubmitButtonChoice>
                   ) : (
@@ -75,6 +76,7 @@ export default function Component() {
                   )
                 )}
               </NoSubmitButtonContent>
+              <NoSubmitButtonSubmit>SUBMIT</NoSubmitButtonSubmit>
             </ModalContentNoSubmit>
           </>
         )}
