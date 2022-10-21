@@ -50,6 +50,7 @@ export default function Component() {
   ];
 
   const [check, setCheck] = useState<boolean>(true);
+  const [resolution, setResolution] = useState<boolean>(false);
   const [optionRender, setOptionRender] = useState<numbers[]>([]);
   const [numberSel, setNumberSel] = useState<number>(0);
   const handleClick = (id: number) => {
@@ -81,6 +82,11 @@ export default function Component() {
   };
   useEffect(() => {
     setOptionRender(initialState);
+    if (window.innerWidth > 500) {
+      setResolution(true);
+    } else {
+      setResolution(false);
+    }
   }, []);
 
   return (
@@ -132,8 +138,9 @@ export default function Component() {
               </SubmitContentValueOfFather>
               <SubmitContentTitle>Thank you!</SubmitContentTitle>
               <SubmitContentText>
-                We appreciate you taking the time to give a rating. <br /> If
-                you ever need more support, don't hesitate to get in touch!
+                We appreciate you taking the time to give a rating.{" "}
+                {resolution && <br />} If you ever need more support, don't
+                hesitate to get in touch!
               </SubmitContentText>
             </ModalContentSubmit>
           </>
