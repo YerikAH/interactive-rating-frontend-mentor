@@ -11,6 +11,7 @@ import {
   NoSubmitText,
   NoSubmitButtonContent,
   NoSubmitButtonChoice,
+  NoSubmitButtonChoiceActive,
 } from "./Styles";
 export default function Component() {
   type numbers = {
@@ -63,14 +64,14 @@ export default function Component() {
               </NoSubmitText>
               <NoSubmitButtonContent>
                 {optionRender.map((item) =>
-                  item.active ? (
+                  !item.active ? (
                     <NoSubmitButtonChoice>
                       {item.numberSelect}
                     </NoSubmitButtonChoice>
                   ) : (
-                    <NoSubmitButtonChoice>
+                    <NoSubmitButtonChoiceActive>
                       {item.numberSelect}
-                    </NoSubmitButtonChoice>
+                    </NoSubmitButtonChoiceActive>
                   )
                 )}
               </NoSubmitButtonContent>
